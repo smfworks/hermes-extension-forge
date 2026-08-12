@@ -1,0 +1,16 @@
+name: hermes-publish-assistant
+description: >
+  Lofoten Extension Forge Assistant — Python plugin providing governed publish gates,
+  docs standards enforcement, GitHub automation scaffolding, and oppositional (breaker)
+  review harness for Hermes skills and plugins. "Fishing precision" quality checks + village
+  knowledge sharing review model. Bundles extension-forge skill.
+version: 1.0.0
+author: Extension Governance Forge Team
+license: MIT
+entry: plugin  # points to __init__.py register
+provides:
+  - cli: publish-assistant
+  - skill: extension-forge
+  - tools: forge_gate, forge_review, forge_scaffold
+lofoten:
+  metaphor: "Precision line-fishing + stockfish preservation + rorbu community review"

@@ -1,0 +1,24 @@
+name: Extension Forge CI (Lofoten Gates)
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'plugin.yaml'
+      - '**/SKILL.md'
+      - '.github/**'
+jobs:
+  forge-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Lofoten gates, breaker, docs enforcement
+        run: |
+          chmod +x .github/workflows/ci-run.sh
+          .github/workflows/ci-run.sh
+      - name: GitHub automation presence
+        run: |
+          test -f .github/workflows/extension-forge-ci.yml && echo "workflow present"
+          test -f .github/PULL_REQUEST_TEMPLATE.md || echo "PR template recommended (added in prep)"
